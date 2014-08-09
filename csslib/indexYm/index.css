@@ -1,0 +1,72 @@
+.bottomshowInfor {
+	bottom: 0;
+	font-size: 14px;
+	left: 0;
+	position: absolute;
+	text-decoration: none;
+	width: 100%;
+	z-index: 30;
+	height: 20px;
+	text-align: center;
+	background-image: url('../../imagelib/indexYM/bkImage.png');
+}
+.topappbar {
+	background-image: url('../../imagelib/black-Linen.png');
+	top: 0px;
+	color: #fff;
+	font-size: .9em;
+	height: 36px;
+	left: 0px;
+	line-height: normal;
+	margin: 0;
+	max-height: 100%;
+	padding: 3px 0;
+	position: fixed;
+	right: 0px;
+	text-align: left;
+	width: 100%;
+	z-index: 100;
+	-ms-touch-action: manipulation;
+}
+.inforBox {
+	background: url('../../imagelib/indexYM/bkImage.png');
+}
+.indexYmBagroundImage {
+	background: url('../../imagelib/furley_bg.png')
+}
+.textAlignPosition {
+	text-align: center;
+}
+.companyPosition{
+	position:absolute;
+	top:0px;
+	left:0px
+}
+.metreBoxPosition{
+	position:absolute;
+	top:50px;
+	left:10px;
+}
+.spreadPlatform{
+   position:absolute;
+   top:0px;
+   right:0px;
+   width:3.3%; 
+   height:90%;
+   background-image:url('../../imagelib/indexYM/bkImage.png');
+}
+.imageSize{
+	max-width:140px;
+	max-height:140px;
+}
+.modalhide{
+   display:none;
+}
+.headlineImageSize{
+	width:100px;
+	height:70px;
+}
+.headlineTableWidth{
+	width:50%;
+}
+

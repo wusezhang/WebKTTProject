@@ -1,0 +1,21 @@
+.bottomshowInfor {
+	height: 40px;
+	text-align: center;
+	font-size:small;
+	background-image: url('../../imagelib/furley_bg.png');
+}
+
+.btnposition{
+	position:absolute;
+	padding-left:500px;
+}
+
+.imgsize{
+	max-width:150px;
+	max-height:100px;
+}
+.newsposition{
+  position:absolute;
+  top:45px;
+  width:100%;
+}

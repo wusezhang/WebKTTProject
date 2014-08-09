@@ -1,0 +1,9 @@
+.imageShowModal{
+	max-height:30px; 
+	max-width:50px;
+}
+.newsposition{
+  position:absolute;
+  top:50px;
+  width:100%;
+}
