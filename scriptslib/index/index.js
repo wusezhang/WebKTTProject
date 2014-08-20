@@ -10,6 +10,8 @@ $(document).ready(function() {
 		$(".live-tile").liveTile();
 		//移除相应的Class属性
 		$(".live-tile").removeClass("carousel");
+		//隐藏侧面菜单框
+		$('#timelyMenuBar').hide();
 	};
 
 	//初始化相应的模板文件
@@ -18,6 +20,7 @@ $(document).ready(function() {
 		$('#addFavoritesBtn').bind('click', addFavoritesEvent);
 		$('#clientDownBtn').bind('click',clientDownEvent);
 		$('#userLoginBtn').bind('click',userLoginEvent);
+		$('#timelynewsBtn').bind('mouseover',showTimelyNewsModel);
 	};
 
 	//加入收藏夹按钮事件
@@ -35,6 +38,12 @@ $(document).ready(function() {
 		}
 
 	};
+    
+    //打开新闻即时信息.
+    function  showTimelyNewsModel(){
+    	alert('打开即时新闻信息！');
+    }
+    
     
     //用户登录事件.
     function  userLoginEvent(){
