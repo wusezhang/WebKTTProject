@@ -53,7 +53,8 @@ $(document).ready(function() {
 	}
 	
 	function  showMarketSentModal(){
-		 var map = $.commonAsyncService('dataCenter/queryMarketSentDataCenter','POST',{start:0,limit:10});
+		 var url = $.serviceAddress()+'dataCenter/queryMarketSentDataCenter';
+		 var map = $.commonAsyncService(url,'POST',{});
          $('#showMarketSentModel').empty();
 		 $('#showMarketSentModel').highcharts({chart:{type:'line',backgroundColor: 'rgba(0,0,0,0)'},
 				title:{text:'股市交易情绪指标动态'},
