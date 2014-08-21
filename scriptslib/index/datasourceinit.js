@@ -30,7 +30,7 @@ $(document).ready(function() {
 		 series:[{name:'涨跌幅', data:map.data.risedecline}] 
 		 });
 		 
-		 //showFutureModal();
+		 showFutureModal();
 		 showMarketSentModal();
 	}
 	
@@ -87,7 +87,8 @@ $(document).ready(function() {
 	   $("#jjzbli").removeClass("active");
 	   $("#financeSummary").attr("class", "active");
 	   $('#financeSummaryModel').empty();
-	   var map = $.commonAsyncService('morningNews/queryDailyHeadLineNews', 'POST', {start:0,limit:6});
+	    var url = $.serviceAddress()+'headline/morningnews';
+	   var map = $.commonAsyncService(url, 'POST', {start:0,limit:6});
 	   var insertTable = '';
 	   $.each(map.data,function(i,obj){
 	       if(i%2==0){
