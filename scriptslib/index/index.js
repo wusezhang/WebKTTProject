@@ -11,7 +11,7 @@ $(document).ready(function() {
 		//移除相应的Class属性
 		$(".live-tile").removeClass("carousel");
 		//隐藏侧面菜单框
-		$('#timelyMenuBar').hide();
+		//$('#timelyMenuBar').hide();
 	};
 
 	//初始化相应的模板文件

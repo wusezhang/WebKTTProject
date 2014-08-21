@@ -14,26 +14,30 @@ $(document).ready(function() {
 		$("#hqxxli").removeClass("active");
 		$("#jjzbli").removeClass("active");
 		$("#timelyDisk").attr("class", "active");
-		var map = $.commonAsyncService('dataCenter/queryPlateConceptDataCenter', 'POST', {start:0,limit:10});
+		
+		var url = $.serviceAddress()+'datacenter/plateconcept';
+		var map = $.commonAsyncService(url, 'POST', {start:0,limit:10});
 		$('#showTbModel').highcharts({
 		 chart: { type: 'column',backgroundColor: 'rgba(0,0,0,0)' },
-		 title: { text: '概念板块涨跌幅前十' },
+		 title: { text: '概念板块涨跌幅' },
 		 subtitle: { text: '资源提供:财汇.NET' },
-		 xAxis: { categories:map.platename},
+		 xAxis: { categories:map.data.platename},
 		 yAxis: { min: 0, title: { text: '百分比(%)' } },
 		 tooltip:{formatter: function() {
                  return '<b>'+ this.x +'板块</b> 涨幅为:<b>'+this.y+'%</b>';
             }},
 		 plotOptions: { column: { pointPadding: 0.2, borderWidth: 0 } },
-		 series:[{name:'涨跌幅', data:map.risedecline}] 
+		 series:[{name:'涨跌幅', data:map.data.risedecline}] 
 		 });
-		 showFutureModal();
+		 
+		 //showFutureModal();
 		 showMarketSentModal();
 	}
 	
 	function showFutureModal() {
         $("#showFutureModel").show();
-		var map = $.commonAsyncService('dataCenter/queryStockFutureDataCenter', 'POST', {start:0,limit:10});
+        var url = $.serviceAddress()+'datacenter/stockfuture';
+		var map = $.commonAsyncService(url, 'POST', {start:0,limit:10});
 		 $('#showFutureModel').highcharts({
 		 	chart:{backgroundColor: 'rgba(0,0,0,0)'},
 		 	title:{ text: '大盘期指期货多空所占比例' },
@@ -48,18 +52,18 @@ $(document).ready(function() {
 		 			 	           format: '<b>{point.name}</b>: {point.percentage:.1f} %' }
 		 			 	           }
 		 			 },
-		 	series:[{type: 'pie', name: '多空所占比例', data: [['空方',map.bear],['多方',map.bull]] }]
+		 	series:[{type: 'pie', name: '多空所占比例', data: [['空方',map.data.bear],['多方',map.data.bull]] }]
 		 });
 	}
 	
 	function  showMarketSentModal(){
-		 var url = $.serviceAddress()+'dataCenter/queryMarketSentDataCenter';
-		 var map = $.commonAsyncService(url,'POST',{});
+		 var url = $.serviceAddress()+'datacenter/marketsentiment';
+		 var map = $.commonAsyncService(url,'GET',{});
          $('#showMarketSentModel').empty();
 		 $('#showMarketSentModel').highcharts({chart:{type:'line',backgroundColor: 'rgba(0,0,0,0)'},
 				title:{text:'股市交易情绪指标动态'},
 				subtitle:{text:'资源提供:财汇.NET'},
-				xAxis:{categories:map.currentdate},
+				xAxis:{categories:map.data.currentdate},
 				yAxis:{title:{text:'股市市场情绪指数'}},
 				tooltip : {
 					enabled : false,
@@ -70,7 +74,7 @@ $(document).ready(function() {
 				plotOptions:{line:{dataLabels:{enabled:true},enableMouseTracking:false}},
 				series : [{
 					name : '股市市场情绪指数值',
-					data : map.currentvalue
+					data : map.data.currentvalue
 				}]
 		});	
 	}
