@@ -19,7 +19,6 @@ $(document).ready(function() {
 		$('#registerBut').bind('click', registerButtonEvent);
 		$('#addFavoritesBtn').bind('click', addFavoritesEvent);
 		$('#clientDownBtn').bind('click',clientDownEvent);
-		$('#userLoginBtn').bind('click',userLoginEvent);
 		$('#timelynewsBtn').bind('mouseover',showTimelyNewsModel);
 	};
 
@@ -42,12 +41,6 @@ $(document).ready(function() {
     //打开新闻即时信息.
     function  showTimelyNewsModel(){
     	alert('打开即时新闻信息！');
-    }
-    
-    
-    //用户登录事件.
-    function  userLoginEvent(){
-    	$("#loginModal").modal('show');
     }
     
 	//注册按钮绑定事件

@@ -1,0 +1,12 @@
+.contextposition{
+  position:absolute;
+  top:50px;
+  width:100%;
+  height:94%;
+}
+.loginpanel{
+  position:absolute;
+  width:45%;	
+  top:25%;
+  left:25%;
+}
