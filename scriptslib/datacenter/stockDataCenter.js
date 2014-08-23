@@ -41,48 +41,50 @@ $(document).ready(function() {
 	    $('#btnContainer').show();
 	    commonInitTitle('新增股票账户户数统计表');
 		commenSelect('stockAccountBtn');
-		var map = $.commonAsyncService('../../dataCenter/queryStockAccountDataCenter','POST',{start:0,limit:20});
+		var url = $.serviceAddress()+'datacenter/stockaccount';
+		var map = $.commonAsyncService(url,'POST',{start:0,limit:20});
         $('#showModal').empty();
         $('#showModal').highcharts({
         title: {text: '新增股票账户户数统计表', x: -20},
         subtitle: {text: '财汇.NET提供',x:-20},
-        xAxis: {categories:map.currentdate},
+        xAxis: {categories:map.data.currentdate},
         yAxis: {title: {text: '账户统计数值'},
                 plotLines: [{value: 0,width: 1,color:'#808080'}]},
         tooltip: {valueSuffix: '户'},
         legend: {layout:'vertical',align:'right',verticalAlign:'top', x:0, y:80,floating:true,borderWidth:1},
         series: [{
             name: '新增股票账户数(户)上海',
-            data:map.addshaccnum
+            data:map.data.addshaccnum
         }, {
             name: '新增股票账户数(户)深圳',
-            data:map.addszaccnum
+            data:map.data.addszaccnum
         }, {
             name: '合计增加股票账户数(户)',
-            data:map.addaccnum
+            data:map.data.addaccnum
         }]
        });
 	}
 	
 	
 	function  sleepStockAccountShow(){
-	    var map = $.commonAsyncService('../../dataCenter/queryStockAccountDataCenter','POST',{start:0,limit:20});
+		var url = $.serviceAddress()+'datacenter/stockaccount';
+	    var map = $.commonAsyncService(url,'POST',{start:0,limit:20});
         $('#showModal').empty();
         commonInitTitle('期末休眠账户数统计表');
 	    $('#showModal').highcharts({
         title: {text: '期末休眠账户数统计表', x: -20},
         subtitle: {text: '财汇.NET提供',x:-20},
-        xAxis: {categories:map.currentdate},
+        xAxis: {categories:map.data.currentdate},
         yAxis: {title: {text: '账户统计数值(万户)'},
                 plotLines: [{value: 0,width: 1,color:'#808080'}]},
         tooltip: {valueSuffix: '万户'},
         legend: {layout:'vertical',align:'right',verticalAlign:'top', x:0, y:80,floating:true,borderWidth:1},
         series: [{
             name: '期末休眠账户数(万户)上海',
-            data:map.finalshsleepnum
+            data:map.data.finalshsleepnum
         }, {
             name: '期末休眠账户数(万户)深圳',
-            data:map.finalszsleepnum
+            data:map.data.finalszsleepnum
         }]
        });
 	}
