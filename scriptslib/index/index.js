@@ -40,7 +40,7 @@ $(document).ready(function() {
     
     //打开新闻即时信息.
     function  showTimelyNewsModel(){
-    	alert('打开即时新闻信息！');
+    	
     }
     
 	//注册按钮绑定事件
