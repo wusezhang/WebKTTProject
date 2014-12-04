@@ -4,11 +4,12 @@ $(document).ready(function() {
 		initModel();
 	});
 	function bindEvent() {
-		
         $('#stockAccountBtn').bind('click',stockAccountShowEvent);
         $('#tradeActivityBtn').bind('click',tradeActivityShowEvent);
         $('#addStockAccNumBtn').bind('click',addStockAccNumShow);
         $('#finalSleepAccNumBtn').bind('click',finalSleepAccNumShow);
+        $('#shiborBtn').bind('click',shiborShowEvent);
+        $('#lrpBtn').bind('click',lrpShowEvent);
 	}
     
     function  initModel(){
@@ -93,7 +94,7 @@ $(document).ready(function() {
 		commenSelect('tradeActivityBtn');
 		commonInitTitle('股市交易活跃度');
 		commonHideEvent();
-		var url = $.serviceAddress()+'datacenter/tradeactivity'
+		var url = $.serviceAddress()+'datacenter/tradeactivity';
 		var map = $.commonAsyncService(url, 'POST',{start:0,limit:25}); 
 			 $('#showModal').empty();
 			 $('#showModal').highcharts(
@@ -112,4 +113,69 @@ $(document).ready(function() {
 		 });
 	}
 
+    function  shiborShowEvent(){
+    	var url = $.serviceAddress()+'datacenter/shibor';
+	    var map = $.commonAsyncService(url,'POST',{start:0,limit:20});
+        $('#showModal').empty();
+        commenSelect('shiborBtn');
+        commonInitTitle('银行隔夜拆借利率');
+        commonHideEvent();
+	    $('#showModal').highcharts({
+        title: {text: '银行隔夜拆借利率统计', x: -20},
+        subtitle: {text: '财汇.NET提供',x:-20},
+        xAxis: {categories:map.data.currenttime},
+        yAxis: {title: {text: '银行隔夜拆借利率统计数值(%)'},
+                plotLines: [{value: 0,width: 1,color:'#808080'}]},
+        tooltip: {valueSuffix: '%'},
+        legend: {layout:'vertical',align:'right',verticalAlign:'top', x:0, y:80,floating:true,borderWidth:1},
+        series: [{
+            name: '隔夜拆借利率',
+            data:map.data.shiboron
+        },{
+            name: '一周拆借利率',
+            data:map.data.shibor1w
+        },{
+            name: '两周拆借利率',
+            data:map.data.shibor2w
+        },{
+            name: '一个月拆借利率',
+            data:map.data.shibor1m
+        },{
+            name: '三个月拆借利率',
+            data:map.data.shibor3m
+        },{
+            name: '六个月拆借利率',
+            data:map.data.shibor6m
+        },{
+            name: '九个月拆借利率',
+            data:map.data.shibor9m
+        },{
+            name: '一年拆借利率',
+            data:map.data.shibor1y
+        }]
+       });
+    } 
+    
+    function  lrpShowEvent(){
+    	commenSelect('lrpBtn');
+		commonInitTitle('最新贷款基础利率');
+		commonHideEvent();
+		var url = $.serviceAddress()+'datacenter/lrp';
+		var map = $.commonAsyncService(url, 'POST',{start:0,limit:25}); 
+			 $('#showModal').empty();
+			 $('#showModal').highcharts(
+				{chart:{ type: 'areaspline' },
+				 title:{ text:'最新贷款基础利率'},
+				 subtitle: {text: '财汇.NET提供',x:-20},
+				 legend: { layout:'vertical', align:'left',verticalAlign: 'top', x: 150, y: 100, floating:true, borderWidth:1, backgroundColor:'#FFFFFF' },
+				 xAxis: { categories:map.data.currenttime, 
+				 plotBands: [{
+				 color: 'rgba(68, 170, 213, .2)' }] },
+				 yAxis: { title: { text:'基础利率值(%)'} },
+				 tooltip: { shared: true, valueSuffix:''}, 
+				 credits: { enabled: false },
+				 plotOptions: { areaspline: { fillOpacity: 0.5 } },
+				 series: [{ name: '基础利率值(%)', data:map.data.lrp1y}] 
+		 });
+    }
 }); 
