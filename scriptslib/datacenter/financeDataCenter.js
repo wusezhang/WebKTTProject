@@ -8,6 +8,7 @@ $(document).ready(function() {
 	function  bindEvent(){
 		$("#goldForexBtn").bind("click", goldForexShowEvent);
 		$('#bulkcargotransBtn').bind('click',bulkCargoTransShowEvent);
+		$('#socialPowerBtn').bind('click',socialPowerShowEvent);
 	}
 	
 	function  initModel(){
@@ -58,6 +59,26 @@ $(document).ready(function() {
 			 credits: { enabled: false },
 			 plotOptions: { areaspline: { fillOpacity: 0.5 } },
 			 series: [{ name: '波罗的海干货综合指数', data:map.data.indexvalue}] 
+			});
+	}
+	
+	function  socialPowerShowEvent(){
+		commenSelect('socialPowerBtn');
+		 var url = $.serviceAddress()+'datacenter/socialpower';
+		 var map = $.commonAsyncService(url, 'POST',{start:0,limit:20}); 
+		 $('#showModal').empty();
+		 $('#showModal').highcharts(
+			{chart:{ type: 'areaspline' },
+			 title:{ text:'全社会用电量统计 '},
+			 legend: { layout:'vertical', align:'left',verticalAlign: 'top', x: 150, y: 100, floating:true, borderWidth:1, backgroundColor:'#FFFFFF' },
+			 xAxis: { categories:map.data.currenttime, 
+			 plotBands: [{
+			 color: 'rgba(68, 170, 213, .2)' }] },
+			 yAxis: { title: { text:'亿千瓦时'} },
+			 tooltip: { shared: true, valueSuffix:''}, 
+			 credits: { enabled: false },
+			 plotOptions: { areaspline: { fillOpacity: 0.5 } },
+			 series: [{ name: '全社会用电量统计', data:map.data.socialpower}] 
 			});
 	}
 
