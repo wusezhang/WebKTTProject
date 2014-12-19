@@ -52,7 +52,8 @@ $(document).ready(function(){
 	
 	function initChinaNewsDataSource(){
 		startNum = Number($('#chinaNewsCount').val())+0;
-		$.commonService('../../morningNews/queryChinaMorningNews', 'POST',
+		var url = $.serviceAddress()+'morningnews/chinanews';
+		$.commonService(url, 'POST',
             {start:startNum,limit:8}, function(map) {
             	$('#chinaNewsTotalCount').val(map.count);
                 initChinaNewsModal(map.data);
@@ -82,7 +83,8 @@ $(document).ready(function(){
 	
 	function  initEuropeNewsDataSource(){
 		startNum = Number($('#europeNewsCount').val())+0;
-		$.commonService('../../morningNews/queryEuropeMorningNews', 'POST',
+		var url = $.serviceAddress()+'morningnews/europenews';
+		$.commonService(url, 'POST',
             {start:startNum,limit:8}, function(map) {
             	$('#europeNewsTotalCount').val(map.count);
                 initEuropeNewsModal(map.data);
@@ -113,7 +115,8 @@ $(document).ready(function(){
 	
 	function initStockNewsDataSource(){
 		startNum = Number($('#stockNewsCount').val())+0;
-		$.commonService('../../morningNews/queryStockMorningNews', 'POST',
+		var url = $.serviceAddress()+'morningnews/stocknews';
+		$.commonService(url, 'POST',
             {start:startNum,limit:8}, function(map) {
             	$('#stockNewsTotalCount').val(map.count);
                 initStockNewsModal(map.data);
