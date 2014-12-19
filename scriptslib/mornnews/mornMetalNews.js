@@ -25,7 +25,8 @@ $(document).ready(function(){
 	
 	function  initForexDataSource(){
 		startNum = Number($('#forexNewsCount').val())+0;
-		$.commonService('../../metalMorningNews/queryForexMorningNews', 'POST',
+		var url = $.serviceAddress()+'morningnews/forexmorningnews';
+		$.commonService(url, 'POST',
             {start:startNum,limit:8}, function(map) {
             	$('#forexNewsTotalCount').val(map.count);
                 initForexNewsModal(map.data);
@@ -34,7 +35,8 @@ $(document).ready(function(){
 	
 	function  initMetalDataSource(){
 		startNum = Number($('#metalNewsCount').val())+0;
-		$.commonService('../../metalMorningNews/queryMetalMorningNews', 'POST',
+		var url = $.serviceAddress()+'morningnews/metalmorningnews';
+		$.commonService(url, 'POST',
             {start:startNum,limit:8}, function(map) {
             	$('#metalNewsTotalCount').val(map.count);
                 initMetalNewsModal(map.data);
@@ -43,7 +45,8 @@ $(document).ready(function(){
 	
 	function initFutureDataSource(){
 		startNum = Number($('#futureNewsCount').val())+0;
-		$.commonService('../../metalMorningNews/queryFutureMorningNews', 'POST',
+		var url = $.serviceAddress()+'morningnews/futuremorningnews';
+		$.commonService(url, 'POST',
             {start:startNum,limit:8}, function(map) {
             	$('#futureNewsTotalCount').val(map.count);
                 initFutureNewsModal(map.data);
