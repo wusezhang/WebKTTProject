@@ -55,8 +55,8 @@ $(document).ready(function(){
 		var url = $.serviceAddress()+'morningnews/chinanews';
 		$.commonService(url, 'POST',
             {start:startNum,limit:8}, function(map) {
-            	$('#chinaNewsTotalCount').val(map.count);
-                initChinaNewsModal(map.data);
+            	$('#chinaNewsTotalCount').val(map.data.count);
+                initChinaNewsModal(map.data.data);
 	        }); 
 	}
 	
@@ -86,8 +86,8 @@ $(document).ready(function(){
 		var url = $.serviceAddress()+'morningnews/europenews';
 		$.commonService(url, 'POST',
             {start:startNum,limit:8}, function(map) {
-            	$('#europeNewsTotalCount').val(map.count);
-                initEuropeNewsModal(map.data);
+            	$('#europeNewsTotalCount').val(map.data.count);
+                initEuropeNewsModal(map.data.data);
 	        }); 
 	}
 	
@@ -118,8 +118,8 @@ $(document).ready(function(){
 		var url = $.serviceAddress()+'morningnews/stocknews';
 		$.commonService(url, 'POST',
             {start:startNum,limit:8}, function(map) {
-            	$('#stockNewsTotalCount').val(map.count);
-                initStockNewsModal(map.data);
+            	$('#stockNewsTotalCount').val(map.data.count);
+                initStockNewsModal(map.data.data);
 	        }); 
 	}
 	

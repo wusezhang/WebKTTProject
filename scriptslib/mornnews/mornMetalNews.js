@@ -28,8 +28,8 @@ $(document).ready(function(){
 		var url = $.serviceAddress()+'morningnews/forexmorningnews';
 		$.commonService(url, 'POST',
             {start:startNum,limit:8}, function(map) {
-            	$('#forexNewsTotalCount').val(map.count);
-                initForexNewsModal(map.data);
+            	$('#forexNewsTotalCount').val(map.data.count);
+                initForexNewsModal(map.data.data);
 	       }); 
 	}
 	
@@ -38,8 +38,8 @@ $(document).ready(function(){
 		var url = $.serviceAddress()+'morningnews/metalmorningnews';
 		$.commonService(url, 'POST',
             {start:startNum,limit:8}, function(map) {
-            	$('#metalNewsTotalCount').val(map.count);
-                initMetalNewsModal(map.data);
+            	$('#metalNewsTotalCount').val(map.data.count);
+                initMetalNewsModal(map.data.data);
 	       }); 
 	}
 	
@@ -48,8 +48,8 @@ $(document).ready(function(){
 		var url = $.serviceAddress()+'morningnews/futuremorningnews';
 		$.commonService(url, 'POST',
             {start:startNum,limit:8}, function(map) {
-            	$('#futureNewsTotalCount').val(map.count);
-                initFutureNewsModal(map.data);
+            	$('#futureNewsTotalCount').val(map.data.count);
+                initFutureNewsModal(map.data.data);
 	       }); 
 	}
 	
