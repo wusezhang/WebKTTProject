@@ -21,10 +21,11 @@ $(document).ready(function(){
 	
 	function  initStockNewsDataSource(){
 		startNum = Number($('#stockNewsCount').val())+0;
-		$.commonService('../../stockCommentsController/queryDailyStockComments', 'POST',
+		var url = $.serviceAddress()+'comments/dailystock';
+		$.commonService(url, 'POST',
             {start:startNum,limit:8}, function(map) {
-            	$('#stockNewsTotalCount').val(map.count);
-                initStockNewsModal(map.data);
+            	$('#stockNewsTotalCount').val(map.data.count);
+                initStockNewsModal(map.data.data);
 	        }); 
 	}
 	
@@ -114,10 +115,11 @@ $(document).ready(function(){
 	 */
 	function  initFinanceDataSource(){
 		startNum = Number($('#stockFinanceCount').val())+0;
-		$.commonService('../../stockCommentsController/queryDailyFinanceComments', 'POST',
+		var url = $.serviceAddress()+'comments/dailyfinance';
+		$.commonService(url, 'POST',
             {start:startNum,limit:8}, function(map) {
-               $('#stockFinanceTotalCount').val(map.count);
-                initFinanceNewsModal(map.data);
+               $('#stockFinanceTotalCount').val(map.data.count);
+                initFinanceNewsModal(map.data.data);
 	        }); 
 	}
 	
