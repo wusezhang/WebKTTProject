@@ -60,10 +60,11 @@ $(document).ready(function(){
 	
 	function  initForexNewsDataSource(){
 		startNum = Number($('#forexNewsCount').val())+0;
-		$.commonService('../../forexCommentsController/queryTodayForexComments', 'POST',
+		var url = $.serviceAddress()+'comments/todayforex';
+		$.commonService(url, 'POST',
             {start:startNum,limit:8}, function(map) {
-               $('#forexNewsTotalCount').val(map.count);	
-		       initForexNewsModal(map.data);
+               $('#forexNewsTotalCount').val(map.data.count);	
+		       initForexNewsModal(map.data.data);
 	        }); 
 	}
 	
@@ -84,10 +85,11 @@ $(document).ready(function(){
 	 */
 	function  initMetalNewsDataSource(){
 		startNum = Number($('#metalNewsCount').val())+0;
-		$.commonService('../../forexCommentsController/queryTodayMetalComments', 'POST',
+		var url = $.serviceAddress()+'comments/todaymetal';
+		$.commonService(url, 'POST',
             {start:startNum,limit:8}, function(map) {
-               $('#metalNewsTotalCount').val(map.count);
-		       initMetalNewsModal(map.data);
+               $('#metalNewsTotalCount').val(map.data.count);
+		       initMetalNewsModal(map.data.data);
 	        }); 
 	}
 	
