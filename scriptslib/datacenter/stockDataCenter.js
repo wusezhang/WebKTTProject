@@ -10,6 +10,7 @@ $(document).ready(function() {
         $('#finalSleepAccNumBtn').bind('click',finalSleepAccNumShow);
         $('#shiborBtn').bind('click',shiborShowEvent);
         $('#lrpBtn').bind('click',lrpShowEvent);
+        $('#dollarIndexBtn').bind('click',dollarIndexShowEvent);
 	}
     
     function  initModel(){
@@ -176,6 +177,30 @@ $(document).ready(function() {
 				 credits: { enabled: false },
 				 plotOptions: { areaspline: { fillOpacity: 0.5 } },
 				 series: [{ name: '基础利率值(%)', data:map.data.lrp1y}] 
+		 });
+    }
+    
+    //美元指数.
+    function dollarIndexShowEvent(){
+    	commenSelect('dollarIndexBtn');
+		commonInitTitle('美元指数');
+		commonHideEvent();
+		var url = $.serviceAddress()+'"datacenter/dollarindex';
+		var map = $.commonAsyncService(url, 'POST',{start:0,limit:25}); 
+			 $('#showModal').empty();
+			 $('#showModal').highcharts(
+				{chart:{ type: 'areaspline' },
+				 title:{ text:'美元指数'},
+				 subtitle: {text: '财汇.NET提供',x:-20},
+				 legend: { layout:'vertical', align:'left',verticalAlign: 'top', x: 150, y: 100, floating:true, borderWidth:1, backgroundColor:'#FFFFFF' },
+				 xAxis: { categories:map.data.opentime, 
+				 plotBands: [{
+				 color: 'rgba(68, 170, 213, .2)' }] },
+				 yAxis: { title: { text:'美元指数值'} },
+				 tooltip: { shared: true, valueSuffix:''}, 
+				 credits: { enabled: false },
+				 plotOptions: { areaspline: { fillOpacity: 0.5 } },
+				 series: [{ name: '美元指数值', data:map.data.newstockprice}] 
 		 });
     }
 }); 
