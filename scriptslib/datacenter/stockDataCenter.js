@@ -185,7 +185,7 @@ $(document).ready(function() {
     	commenSelect('dollarIndexBtn');
 		commonInitTitle('美元指数');
 		commonHideEvent();
-		var url = $.serviceAddress()+'"datacenter/dollarindex';
+		var url = $.serviceAddress()+'datacenter/dollarindex';
 		var map = $.commonAsyncService(url, 'POST',{start:0,limit:25}); 
 			 $('#showModal').empty();
 			 $('#showModal').highcharts(
