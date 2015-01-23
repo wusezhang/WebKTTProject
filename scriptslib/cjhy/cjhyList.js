@@ -32,7 +32,7 @@ function  initArgs(){
 	var url = $.serviceAddress()+'dailyblog/byresourcetype';
 	return {url:url,
 		      params:{bzfl:0,countPerPage:11,bzname:$.trim($('#bznameInput').val())},
-		      callBack:function(data){initAuthorModel(data.data);}		
+		      callBack:function(data){initAuthorModel(data);}		
 		    };
 }
 
