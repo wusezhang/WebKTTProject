@@ -16,7 +16,7 @@ $(document).ready(function(){
 
 function  initArgs(){
 	var url = $.serviceAddress()+'dailyblog/dailyarticles';
-	return {url:'url',
+	return {url:url,
 		      params:{},
 		      callBack:function(data){initAuthorArticleList(data);}		
 		    };
