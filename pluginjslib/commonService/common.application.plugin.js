@@ -16,7 +16,6 @@ jQuery.extend({
         params.limit = countPerPage;
         params.start = currentPage * countPerPage;
         $.commonService(args.url, 'POST', args.params, function(result) {
-        	debugger;
             var data = result.data.data;
             var count = result.data.count;
             if (data.length == 0 && currentPage > 0) {
