@@ -29,8 +29,9 @@ $(document).ready(function(){
 });
 
 function  initArgs(){
-	return {url:'../../cjhy/queryCjhyResourceByCjxjType',
-		      params:{cjxjType:1,countPerPage:12,bzname:$.trim($('#bznameInput').val())},
+	var url = $.serviceAddress()+'dailyblog/byresourcetype';
+	return {url:url,
+		      params:{bzfl:1,countPerPage:12,bzname:$.trim($('#bznameInput').val())},
 		      callBack:function(data){initAuthorModel(data);}		
 		    };
 }
@@ -41,8 +42,8 @@ function  initAuthorModel(data){
 		$('#authShowModel').append('<tr><td><img src="../imagelib/celeBlogImage/'+data[i].srcname+'" class="img-rounded imageShowModal"/></td>'
 		      +'<td>'+data[i].bzname+'</td>'
           	  +'<td> '+data[i].bzintroduce +'</td> '
-          	  +'<td> '+$.formatLong(data[i].createDate)+'</td> '
-          	  +'<td> <a href="#" class="btn btn-sm btn-success">'+data[i].population.toFixed(2)+'%</a></td> '
+          	  +'<td> '+data[i].createDate+'</td> '
+          	  +'<td> <a href="#" class="btn btn-sm btn-success">'+ +'%</a></td> '
           	  +'<td><a href="hshyListDetail.html?id='+data[i].id+'"  class="btn btn-sm btn-primary fancybox fancybox.iframe"><span class="glyphicon glyphicon-ok-sign">'
           	  +'</span>&nbsp;&nbsp;评论列表</a></td></tr>');
 	}
