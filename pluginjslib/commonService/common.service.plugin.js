@@ -34,6 +34,6 @@ jQuery.extend({
 	    return  returnData;
 	},
 	serviceAddress:function(){
-		return  'http://127.0.0.1:8888/';
+		return  'http://216.189.56.159:8888/';
 	}	
 });
