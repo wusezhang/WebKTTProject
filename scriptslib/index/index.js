@@ -10,8 +10,8 @@ $(document).ready(function() {
 		$(".live-tile").liveTile();
 		//移除相应的Class属性
 		$(".live-tile").removeClass("carousel");
-		//隐藏侧面菜单框
-		//$('#timelyMenuBar').hide();
+		//展示框弹出。
+		$(".etc").click();
 	};
 
 	//初始化相应的模板文件
