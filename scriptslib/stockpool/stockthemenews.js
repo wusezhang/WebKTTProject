@@ -63,7 +63,8 @@ $(document).ready(function() {
 	//初始化相应的数据集.
 	function initThemeNews(){
 	   startNum = Number($('#themeNewsCount').val())+0;
-	   $.commonService('../../stockThemeController/queryCurrentThemeNews', 'POST',
+	   var url = $.serviceAddress()+'themecompany/dailythemesnews';
+	   $.commonService(url, 'POST',
             {start:startNum,limit:13}, function(map) {
                $('#themeNewsTotalCount').val(map.count);	
 		       initThemeTableInfor(map.data);
@@ -83,7 +84,8 @@ $(document).ready(function() {
 	//初始化相应的上市公司信息.
 	function  initCompanyNews(){
 		startNum = Number($('#companyNewsCount').val())+0;
-	    $.commonService('../../stockThemeController/queryCompanyNews', 'POST',
+		var url = $.serviceAddress()+'themecompany/dailycompanynews';
+	    $.commonService(url, 'POST',
             {start:startNum,limit:13}, function(map) {
                $('#companyNewsTotalCount').val(map.count);	
 		       initCompanyThemeNews(map.data);
