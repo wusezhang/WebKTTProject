@@ -66,8 +66,8 @@ $(document).ready(function() {
 	   var url = $.serviceAddress()+'themecompany/dailythemesnews';
 	   $.commonService(url, 'POST',
             {start:startNum,limit:13}, function(map) {
-               $('#themeNewsTotalCount').val(map.count);	
-		       initThemeTableInfor(map.data);
+               $('#themeNewsTotalCount').val(map.data.count);	
+		       initThemeTableInfor(map.data.data);
 	        }); 
 	}
 	//初始化题材信息模块.
@@ -87,8 +87,8 @@ $(document).ready(function() {
 		var url = $.serviceAddress()+'themecompany/dailycompanynews';
 	    $.commonService(url, 'POST',
             {start:startNum,limit:13}, function(map) {
-               $('#companyNewsTotalCount').val(map.count);	
-		       initCompanyThemeNews(map.data);
+               $('#companyNewsTotalCount').val(map.data.count);	
+		       initCompanyThemeNews(map.data.data);
 	        }); 
 	   
 	}
