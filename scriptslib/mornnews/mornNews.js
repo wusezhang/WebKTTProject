@@ -123,41 +123,7 @@ $(document).ready(function(){
 	    });
 	    $('#chinaNewsModal').append(insertTable);
 	}
-	
-	
-	function  initEuropeNewsModal(data){
-		$('#europeNewsModal').empty();
-		var insertTable = '';
-		$.each(data,function(i,obj){
-		  if(i%2==0){
-		  	insertTable = insertTable +'<tr><td><div class="media">'
-	        +'<a class="pull-left" href="'+obj.linkUrl+'">'
-            +'<img class="media-object maxImageSize img-thumbnail" src='+obj.imageUrl+' alt="'+obj.title+'"></a>'
-			+'<div class="media-body">'
-			+'<h5 class="media-heading"><a href="'+obj.linkUrl
-			+'" class="text-info" target="view_window"><span class="glyphicon glyphicon-globe"></span>  '
-			+obj.title+'</a>'
-			+'<span class="label label-info pull-right">'+obj.pubDate+'</span> </h5>'
-			+'<h6 class="text-warning">'+$.trim(obj.descriptContext)+'</h6>'
-			+'</div>'
-		    +'</div></td>';
-		  }else{
-		  	insertTable =insertTable + '<td><div class="media">'
-	        +'<a class="pull-left" href="'+obj.linkUrl+'">'
-            +'<img class="media-object maxImageSize img-thumbnail" src='+obj.imageUrl+' alt="'+obj.title+'"></a>'
-			+'<div class="media-body">'
-			+'<h5 class="media-heading"><a href="'+obj.linkUrl
-			+'" class="text-info" target="view_window"><span class="glyphicon glyphicon-globe"></span>  '
-			+obj.title+'</a>'
-			+'<span class="label label-info pull-right">'+obj.pubDate+'</span> </h5>'
-			+'<h6 class="text-warning">'+$.trim(obj.descriptContext)+'</h6>'
-			+'</div>'
-		    +'</div></td></tr>';
-		  }
-	    });
-	    $('#europeNewsModal').append(insertTable);
-	}
-	
+		
 	function initStockNewsModal(data){
 		$('#stockNewsModal').empty();
 		var insertTable = '';

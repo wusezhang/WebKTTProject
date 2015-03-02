@@ -9,8 +9,6 @@ $(document).ready(function(){
 	    $('#forexNewsBtnUp').bind('click',forexNewsUpEvent);
 	    $('#metalNewsBtnDown').bind('click',metalNewsDownEvent);
 	    $('#metalNewsBtnUp').bind('click',metalNewsUpEvent);
-	    $('#futureNewsBtnDown').bind('click',futureNewsDownEvent);
-	    $('#futureNewsBtnUp').bind('click',futureNewsUpEvent);
 	}
 	
 	function  initModal(){
@@ -18,8 +16,6 @@ $(document).ready(function(){
 		initForexDataSource();
 		//初始化贵金属新闻.
 		initMetalDataSource();
-		//初始化期货新闻.
-		initFutureDataSource();
 	}
 	
 	
@@ -43,16 +39,7 @@ $(document).ready(function(){
 	       }); 
 	}
 	
-	function initFutureDataSource(){
-		startNum = Number($('#futureNewsCount').val())+0;
-		var url = $.serviceAddress()+'morningnews/futuremorningnews';
-		$.commonService(url, 'POST',
-            {start:startNum,limit:8}, function(map) {
-            	$('#futureNewsTotalCount').val(map.data.count);
-                initFutureNewsModal(map.data.data);
-	       }); 
-	}
-	
+
 	function  forexNewsDownEvent(){
 		currentCount = 0 ;
     	if((Number($('#forexNewsCount').val())+8)>Number($('#forexNewsTotalCount').val())){
@@ -93,25 +80,7 @@ $(document).ready(function(){
     	initMetalDataSource();
 	}
 	
-	function futureNewsDownEvent(){
-		currentCount = 0 ;
-    	if((Number($('#futureNewsCount').val())+8)>Number($('#futureNewsTotalCount').val())){
-    		currentCount = Number($('#futureNewsCount').val());
-    	}else{
-    		currentCount = Number($('#futureNewsCount').val())+8;
-    	}
-    	$('#futureNewsCount').val(currentCount);
-    	initFutureDataSource();
-	}
 	
-	function  futureNewsUpEvent(){
-		currentData = 0;
-    	if((Number($('#futureNewsCount').val())-8)>0){
-    		currentData = Number($('#futureNewsCount').val())-8;
-    	}
-    	$('#futureNewsCount').val(currentData);
-    	initFutureDataSource();
-	}
 	
 	function initForexNewsModal(data){
 		$('#forexNewsModal').empty();
@@ -180,36 +149,4 @@ $(document).ready(function(){
 	    $('#metalNewsModal').append(insertTable);
 	}
 	
-	function  initFutureNewsModal(data){
-		$('#futureNewsModal').empty();
-		var insertTable = '';
-		$.each(data,function(i,obj){
-		  if(i%2==0){
-		  	insertTable = insertTable +'<tr><td><div class="media">'
-	        +'<a class="pull-left" href="'+obj.linkUrl+'">'
-            +'<img class="media-object maxImageSize img-thumbnail" src='+obj.imageUrl+' alt="'+obj.title+'"></a>'
-			+'<div class="media-body">'
-			+'<h5 class="media-heading"><a href="'+obj.linkUrl
-			+'" class="text-info" target="view_window"><span class="glyphicon glyphicon-globe"></span>  '
-			+obj.title+'</a>'
-			+'<span class="label label-primary pull-right">'+obj.pubDate+'</span> </h5>'
-			+'<h6 class="text-warning">'+$.trim(obj.descriptContext)+'</h6>'
-			+'</div>'
-		    +'</div></td>';
-		  }else{
-		  	insertTable =insertTable + '<td><div class="media">'
-	        +'<a class="pull-left" href="'+obj.linkUrl+'">'
-            +'<img class="media-object maxImageSize img-thumbnail" src='+obj.imageUrl+' alt="'+obj.title+'"></a>'
-			+'<div class="media-body">'
-			+'<h5 class="media-heading"><a href="'+obj.linkUrl
-			+'" class="text-info" target="view_window"><span class="glyphicon glyphicon-globe"></span>  '
-			+obj.title+'</a>'
-			+'<span class="label label-primary pull-right">'+obj.pubDate+'</span> </h5>'
-			+'<h6 class="text-warning">'+$.trim(obj.descriptContext)+'</h6>'
-			+'</div>'
-		    +'</div></td></tr>';
-		  }
-	    });
-	    $('#futureNewsModal').append(insertTable);
-	}
 });
