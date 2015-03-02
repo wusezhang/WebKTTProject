@@ -7,8 +7,6 @@ $(document).ready(function(){
 	function  bindEvent(){
 		$('#chinaNewsBtnDown').bind('click',chinaNewsDownEvent);
 		$('#chinaNewsBtnUp').bind('click',chinaNewsUpEvent);
-		$('#europeNewsBtnDown').bind('click',europeNewsDownEvent);
-		$('#europeNewsBtnUp').bind('click',europeNewsUpEvent);
 		$('#stockNewsBtnDown').bind('click',stockNewsDownEvent);
 		$('#stockNewsBtnUp').bind('click',stockNewsUpEvent);
 	}
@@ -16,8 +14,6 @@ $(document).ready(function(){
 	function  initModal(){
 		//初始化相应的股市评论信息
 		initChinaNewsDataSource();
-		//初始化相应的外国信息.
-		initEuropeNewsDataSource();
 		//初始化股市新闻.
 		initStockNewsDataSource();
 	}
@@ -57,37 +53,6 @@ $(document).ready(function(){
             {start:startNum,limit:8}, function(map) {
             	$('#chinaNewsTotalCount').val(map.data.count);
                 initChinaNewsModal(map.data.data);
-	        }); 
-	}
-	
-	
-	function  europeNewsDownEvent(){
-		currentCount = 0 ;
-    	if((Number($('#europeNewsCount').val())+8)>Number($('#europeNewsTotalCount').val())){
-    		currentCount = Number($('#europeNewsCount').val());
-    	}else{
-    		currentCount = Number($('#europeNewsCount').val())+8;
-    	}
-    	$('#europeNewsCount').val(currentCount);
-    	initEuropeNewsDataSource();
-	}
-	
-	function  europeNewsUpEvent(){
-		currentData = 0;
-    	if((Number($('#europeNewsCount').val())-8)>0){
-    		currentData = Number($('#europeNewsCount').val())-8;
-    	}
-    	$('#europeNewsCount').val(currentData);
-    	initEuropeNewsDataSource();
-	}
-	
-	function  initEuropeNewsDataSource(){
-		startNum = Number($('#europeNewsCount').val())+0;
-		var url = $.serviceAddress()+'morningnews/europenews';
-		$.commonService(url, 'POST',
-            {start:startNum,limit:8}, function(map) {
-            	$('#europeNewsTotalCount').val(map.data.count);
-                initEuropeNewsModal(map.data.data);
 	        }); 
 	}
 	
