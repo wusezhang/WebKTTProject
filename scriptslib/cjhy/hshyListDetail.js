@@ -17,7 +17,7 @@ $(document).ready(function(){
 });
 
 function  initArgs(){
-	var url  =  $.serviceAddress() +'dailyblog/authorarticles';
+	var url  =  $.serviceAddress() +'dailyblog/forexarticlesbyid';
 	return {url:url,
 		      params:{countPerPage:8,id:$.getParam('id')},
 		      callBack:function(data){initAuthorArticleList(data);}		
