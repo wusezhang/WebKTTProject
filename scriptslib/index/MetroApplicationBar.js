@@ -55,15 +55,15 @@ $(document).ready(function() {
 
     //信息框按钮点击时
     function openInformationContext() {
-        if($("#arrowUpButton").attr("class") == "icon-white icon-th-list") {
-            $("#arrowUpButton").attr("class", "icon-white icon-th");
+        if($("#arrowUpButton").attr("src") == "imagelib/iconresource/hardware/2x_web/ic_keyboard_arrow_up_grey600_18dp.png") {
+            $("#arrowUpButton").attr("src", "imagelib/iconresource/hardware/2x_web/ic_keyboard_arrow_down_grey600_18dp.png");
+            $("#mooningdiv,#usddiv,#sspmdiv,#jjzbdiv").hide();
+            $("#showBox").show();
+            $('#financeSummaryBtn').click();
+        } else if($("#arrowUpButton").attr("src") == "imagelib/iconresource/hardware/2x_web/ic_keyboard_arrow_down_grey600_18dp.png") {
+            $("#arrowUpButton").attr("src", "imagelib/iconresource/hardware/2x_web/ic_keyboard_arrow_up_grey600_18dp.png");
             $("#mooningdiv,#usddiv,#sspmdiv,#jjzbdiv").show();
             $("#showBox").hide();
-        } else if($("#arrowUpButton").attr("class") == "icon-white icon-th") {
-            $("#arrowUpButton").attr("class", "icon-white icon-th-list");
-            $("#mooningdiv,#usddiv,#sspmdiv,#jjzbdiv").hide();
-            $("#showBox").show(500);
-            $('#financeSummaryBtn').click();
         }
     }
 
