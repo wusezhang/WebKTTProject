@@ -15,21 +15,41 @@
 		<script type="text/javascript" src="../pluginjslib/commonService/common.application.plugin.js"></script>
 		<script type="text/javascript" src="../pluginjslib/commonService/common.util.plugin.js"></script>
 		<script type="text/javascript" src="../pluginjslib/commonService/common.formatdate.plugin.js"></script>
-		<script type="text/javascript" src="../scriptslib/cjhy/cjhyDailyDetail.js"></script>
 	</head>
 	<body>
 		<table class="table table-striped table-condensed table-hover">
-          	  <thead>
-          	  	 <th>评论员</th>
-          	  	 <th>财经评论</th>
-          	  	 <th>搜录日期</th>
-          	  </thead>
-          	  <tbody id="authShowModel">
-          	  </tbody>
-          </table>
-          <div align="center">
-			  <ul id="pages" class="pagination"> </ul>
-		  </div>
+			<thead>
+				<th>评论员</th>
+				<th>财经评论</th>
+				<th>搜录日期</th>
+			</thead>
+			<tbody id="authShowModel"></tbody>
+		</table>
+		<div align="center">
+			<ul id="pages" class="pagination"></ul>
+		</div>
+		<script type="text/javascript">
+			function initArgs() {
+				var url = $.serviceAddress() + 'dailyblog/dailyarticles';
+				return {
+					url : url,
+					params : {},
+					callBack : function(data) {
+						initAuthorArticleList(data);
+					}
+				};
+			}
+
+			function initAuthorArticleList(data) {
+				$('#authShowModel').empty();
+				for (var i = 0; i < data.length; i++) {
+					$('#authShowModel').append('<tr><td><img src="../imagelib/celeBlogImage/' + data[i].imageUrl + '"  class="img-rounded imageShowModal"/></td>' 
+					+ '<td><a href="' + data[i].linkUrl + '" class="btn btn-link" target="view_window">' + data[i].title + '</a></td>' 
+					+ '<td> ' + data[i].pubDate + '</td> ' + '</tr>');
+				}
+			}
+            $.showPage(0);
+		</script>
 	</body>
 </html>
 
