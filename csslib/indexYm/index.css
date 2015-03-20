@@ -45,13 +45,13 @@
 .metreBoxPosition{
 	position:absolute;
 	top:50px;
-	left:10px;
+	padding-left:100px;
 }
 .spreadPlatform{
    position:absolute;
    top:0px;
-   right:0px;
-   width:3.3%; 
+   left:0px;
+   width:3.5%; 
    height:90%;
 }
 .imageSize{

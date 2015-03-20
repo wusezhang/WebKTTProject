@@ -80,7 +80,6 @@ $(document).ready(function() {
 	}
 	
    function  financeSummaryShowEvent(){
-   	   debugger;
    	   $('#showModelTable').hide();
    	   $('#financeSummaryModel').show();
    	   $("#timelyDisk").removeClass("active");
