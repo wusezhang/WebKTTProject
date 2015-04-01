@@ -128,14 +128,16 @@ $(document).ready(function() {
 	   var insertTable = '';
 	   $.each(map.data.data,function(i,obj){
 	       if(i%2==0){
-	      	  insertTable = insertTable +'<tr><td class="headlineTableWidth"><div class="media">'
+	      	  insertTable = insertTable +'<tr><td class="headlineTableWidth">'
 						+'<div class="media-body">'
-						+'<a class="media-heading" href="'+obj.linkUrl+'" target="view_window">'+obj.title+'</a>'
+						+'<span class="icon-white   icon-share-alt"> </span>'
+						+ '<a class="media-heading" href="'+obj.linkUrl+'" target="view_window">'+obj.title+'</a>'
 						+'<div>'+obj.descriptContext+'</div>'
 						+'</div></div></td>';
 	      	}else{
-	      	   insertTable = insertTable +'<td class="headlineTableWidth"><div class="media">'
+	      	   insertTable = insertTable +'<td class="headlineTableWidth">'
 						+'<div class="media-body">'
+						+'<span class="icon-white   icon-share-alt"> </span>'
 						+'<a class="media-heading" href="'+obj.linkUrl+'" target="view_window">'+obj.title+'</a>'
 						+'<div>'+obj.descriptContext+'</div>'
 						+'</div></div></td></tr>';
