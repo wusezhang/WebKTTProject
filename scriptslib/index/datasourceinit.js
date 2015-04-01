@@ -5,6 +5,7 @@ $(document).ready(function() {
 	function bindEvent() {
 		$("#timelyDiskBtn").bind("click", showJJZBEvent);
 		$('#financeSummaryBtn').bind('click',financeSummaryShowEvent);
+		$('#hotMarketBtn').bind('click',hotMarketShowEvent);
 	}
 
 	function showJJZBEvent() {
@@ -82,8 +83,9 @@ $(document).ready(function() {
    function  financeSummaryShowEvent(){
    	   $('#showModelTable').hide();
    	   $('#financeSummaryModel').show();
+   	   $('#hotMarketModel').hide();
    	   $("#timelyDisk").removeClass("active");
-	   $("#hqxxli").removeClass("active");
+	   $("#hotMarket").removeClass("active");
 	   $("#jjzbli").removeClass("active");
 	   $("#financeSummary").attr("class", "active");
 	   $('#financeSummaryModel').empty();
@@ -111,5 +113,45 @@ $(document).ready(function() {
 	   });
 	   $('#financeSummaryModel').append(insertTable);
    }	
+
+   function  hotMarketShowEvent(){
+   	   $('#showModelTable').hide();
+   	   $('#financeSummaryModel').hide();
+   	   $('#hotMarketModel').show();
+   	   $("#timelyDisk").removeClass("active");
+	   $("#financeSummary").removeClass("active");
+	   $("#jjzbli").removeClass("active");
+	   $("#hotMarket").attr("class", "active");
+	   $('#hotMarketModel').empty();
+	   var url = $.serviceAddress()+'headline/hotmarket';
+	   var map = $.commonAsyncService(url, 'POST', {start:0,limit:6});
+	   var insertTable = '';
+	   debugger;
+	   $.each(map.data.data,function(i,obj){
+	       if(i%2==0){
+	      	  insertTable = insertTable +'<tr><td class="headlineTableWidth"><div class="media">'
+						+'<a class="pull-left" href="'+obj.linkUrl+'" target="view_window">'
+						+'<img class="media-object headlineImageSize img-rounded" src="'+obj.imageUrl+'"> </a>'
+						+'<div class="media-body">'
+						+'<a class="media-heading" href="'+obj.linkUrl+'" target="view_window">'+obj.title+'</a>'
+						+'<div>'+obj.descriptContext+'</div>'
+						+'</div></div></td>';
+	      	}else{
+	      	   insertTable = insertTable +'<td class="headlineTableWidth"><div class="media">'
+						+'<a class="pull-left" href="'+obj.linkUrl+'" target="view_window">'
+						+'<img class="media-object headlineImageSize img-rounded" src="'+obj.imageUrl+'"> </a>'
+						+'<div class="media-body">'
+						+'<a class="media-heading" href="'+obj.linkUrl+'" target="view_window">'+obj.title+'</a>'
+						+'<div>'+obj.descriptContext+'</div>'
+						+'</div></div></td></tr>';
+	      }
+	   });
+	   $('#hotMarketModel').append(insertTable);
+   }
+       
+
+
+
+
 
 });
