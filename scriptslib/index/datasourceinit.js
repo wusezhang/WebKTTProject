@@ -124,21 +124,17 @@ $(document).ready(function() {
 	   $("#hotMarket").attr("class", "active");
 	   $('#hotMarketModel').empty();
 	   var url = $.serviceAddress()+'headline/hotmarket';
-	   var map = $.commonAsyncService(url, 'POST', {start:0,limit:6});
+	   var map = $.commonAsyncService(url, 'POST', {start:0,limit:8});
 	   var insertTable = '';
 	   $.each(map.data.data,function(i,obj){
 	       if(i%2==0){
 	      	  insertTable = insertTable +'<tr><td class="headlineTableWidth"><div class="media">'
-						+'<a class="pull-left" href="'+obj.linkUrl+'" target="view_window">'
-						+'<img class="media-object headlineImageSize img-rounded" src="'+obj.imageUrl+'"> </a>'
 						+'<div class="media-body">'
 						+'<a class="media-heading" href="'+obj.linkUrl+'" target="view_window">'+obj.title+'</a>'
 						+'<div>'+obj.descriptContext+'</div>'
 						+'</div></div></td>';
 	      	}else{
 	      	   insertTable = insertTable +'<td class="headlineTableWidth"><div class="media">'
-						+'<a class="pull-left" href="'+obj.linkUrl+'" target="view_window">'
-						+'<img class="media-object headlineImageSize img-rounded" src="'+obj.imageUrl+'"> </a>'
 						+'<div class="media-body">'
 						+'<a class="media-heading" href="'+obj.linkUrl+'" target="view_window">'+obj.title+'</a>'
 						+'<div>'+obj.descriptContext+'</div>'
