@@ -126,7 +126,6 @@ $(document).ready(function() {
 	   var url = $.serviceAddress()+'headline/hotmarket';
 	   var map = $.commonAsyncService(url, 'POST', {start:0,limit:6});
 	   var insertTable = '';
-	   debugger;
 	   $.each(map.data.data,function(i,obj){
 	       if(i%2==0){
 	      	  insertTable = insertTable +'<tr><td class="headlineTableWidth"><div class="media">'
