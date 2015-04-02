@@ -37,23 +37,13 @@
 .textAlignPosition {
 	text-align: center;
 }
-.companyPosition{
-	position:absolute;
-	top:0px;
-	left:0px
-}
+
 .metreBoxPosition{
 	position:absolute;
 	top:50px;
 	padding-left:100px;
 }
-.spreadPlatform{
-   position:absolute;
-   top:0px;
-   left:0px;
-   width:3.5%; 
-   height:90%;
-}
+
 .imageSize{
 	max-width:140px;
 	max-height:140px;
