@@ -11,6 +11,7 @@ $(document).ready(function() {
         $('#shiborBtn').bind('click',shiborShowEvent);
         $('#lrpBtn').bind('click',lrpShowEvent);
         $('#dollarIndexBtn').bind('click',dollarIndexShowEvent);
+        $('#marginBtn').bind('click',marginShowEvent);
 	}
     
     function  initModel(){
@@ -202,5 +203,35 @@ $(document).ready(function() {
 				 plotOptions: { areaspline: { fillOpacity: 0.5 } },
 				 series: [{ name: '美元指数值', data:map.data.newstockprice}] 
 		 });
+    }
+    
+    //融资融券交易量
+    function  marginShowEvent(){
+    	var url = $.serviceAddress()+'datacenter/margintrade';
+	    var map = $.commonAsyncService(url,'POST',{start:0,limit:30});
+	    debugger;
+        $('#showModal').empty();
+        commenSelect('marginBtn');
+        commonInitTitle('融资融券交易量');
+        commonHideEvent();
+	    $('#showModal').highcharts({
+        title: {text: '融资融券交易量统计', x: -20},
+        subtitle: {text: '财汇.NET提供',x:-20},
+        xAxis: {categories:map.data.jyrq},
+        yAxis: {title: {text: '融资融券交易日期'},
+                plotLines: [{value: 0,width: 1,color:'#808080'}]},
+        tooltip: {valueSuffix: '%'},
+        legend: {layout:'vertical',align:'right',verticalAlign:'top', x:0, y:80,floating:true,borderWidth:1},
+        series: [{
+            name: '融资余额',
+            data:map.data.rzye
+        },{
+            name: '融券余额',
+            data:map.data.rqye
+        },{
+            name: '融资融券余额',
+            data:map.data.rzrqye
+        }]
+       });
     }
 }); 
