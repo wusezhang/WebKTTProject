@@ -47,6 +47,7 @@ $(document).ready(function() {
 		var url = $.serviceAddress()+'datacenter/stockaccount';
 		var map = $.commonAsyncService(url,'POST',{start:0,limit:20});
         $('#showModal').empty();
+        $('#dataModal').empty();
         $('#showModal').highcharts({
         title: {text: '新增股票账户户数统计表', x: -20},
         subtitle: {text: '财汇.NET提供',x:-20},
@@ -73,6 +74,7 @@ $(document).ready(function() {
 		var url = $.serviceAddress()+'datacenter/stockaccount';
 	    var map = $.commonAsyncService(url,'POST',{start:0,limit:20});
         $('#showModal').empty();
+        $('#dataModal').empty();
         commonInitTitle('期末休眠账户数统计表');
 	    $('#showModal').highcharts({
         title: {text: '期末休眠账户数统计表', x: -20},
@@ -99,6 +101,7 @@ $(document).ready(function() {
 		var url = $.serviceAddress()+'datacenter/tradeactivity';
 		var map = $.commonAsyncService(url, 'POST',{start:0,limit:25}); 
 			 $('#showModal').empty();
+			 $('#dataModal').empty();
 			 $('#showModal').highcharts(
 				{chart:{ type: 'areaspline' },
 				 title:{ text:'股市交易活跃度'},
@@ -119,6 +122,7 @@ $(document).ready(function() {
     	var url = $.serviceAddress()+'datacenter/shibor';
 	    var map = $.commonAsyncService(url,'POST',{start:0,limit:20});
         $('#showModal').empty();
+        $('#dataModal').empty();
         commenSelect('shiborBtn');
         commonInitTitle('银行隔夜拆借利率');
         commonHideEvent();
@@ -165,6 +169,7 @@ $(document).ready(function() {
 		var url = $.serviceAddress()+'datacenter/lrp';
 		var map = $.commonAsyncService(url, 'POST',{start:0,limit:25}); 
 			 $('#showModal').empty();
+			  $('#dataModal').empty();
 			 $('#showModal').highcharts(
 				{chart:{ type: 'areaspline' },
 				 title:{ text:'最新贷款基础利率'},
@@ -189,6 +194,7 @@ $(document).ready(function() {
 		var url = $.serviceAddress()+'datacenter/dollarindex';
 		var map = $.commonAsyncService(url, 'POST',{start:0,limit:25}); 
 			 $('#showModal').empty();
+			 $('#dataModal').empty();
 			 $('#showModal').highcharts(
 				{chart:{ type: 'areaspline' },
 				 title:{ text:'美元指数'},
@@ -208,9 +214,9 @@ $(document).ready(function() {
     //融资融券交易量
     function  marginShowEvent(){
     	var url = $.serviceAddress()+'datacenter/margintrade';
-	    var map = $.commonAsyncService(url,'POST',{start:0,limit:30});
-	    debugger;
+	    var map = $.commonAsyncService(url,'POST',{start:0,limit:60});
         $('#showModal').empty();
+        $('#dataModal').empty();
         commenSelect('marginBtn');
         commonInitTitle('融资融券交易量');
         commonHideEvent();
@@ -220,17 +226,29 @@ $(document).ready(function() {
         xAxis: {categories:map.data.jyrq},
         yAxis: {title: {text: '融资融券交易日期'},
                 plotLines: [{value: 0,width: 1,color:'#808080'}]},
-        tooltip: {valueSuffix: '%'},
+        tooltip: {valueSuffix: '元'},
         legend: {layout:'vertical',align:'right',verticalAlign:'top', x:0, y:80,floating:true,borderWidth:1},
         series: [{
             name: '融资余额',
             data:map.data.rzye
         },{
-            name: '融券余额',
-            data:map.data.rqye
-        },{
             name: '融资融券余额',
             data:map.data.rzrqye
+        }]
+        });
+        
+        
+        $('#dataModal').highcharts({
+        title: {text: '融券交易量统计', x: -20},
+        subtitle: {text: '财汇.NET提供',x:-20},
+        xAxis: {categories:map.data.jyrq},
+        yAxis: {title: {text: '融券交易日期'},
+                plotLines: [{value: 0,width: 1,color:'#808080'}]},
+        tooltip: {valueSuffix: '元'},
+        legend: {layout:'vertical',align:'right',verticalAlign:'top', x:0, y:80,floating:true,borderWidth:1},
+        series: [{
+            name: '融券余额',
+            data:map.data.rqye
         }]
        });
     }
