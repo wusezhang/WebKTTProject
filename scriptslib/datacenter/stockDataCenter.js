@@ -149,15 +149,6 @@ $(document).ready(function() {
         },{
             name: '三个月拆借利率',
             data:map.data.shibor3m
-        },{
-            name: '六个月拆借利率',
-            data:map.data.shibor6m
-        },{
-            name: '九个月拆借利率',
-            data:map.data.shibor9m
-        },{
-            name: '一年拆借利率',
-            data:map.data.shibor1y
         }]
        });
     } 
