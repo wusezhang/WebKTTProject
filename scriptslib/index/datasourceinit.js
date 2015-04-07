@@ -13,7 +13,6 @@ $(document).ready(function() {
 		$('#showModelTable').show();
 		$("#financeSummary").removeClass("active");
 		$("#hqxxli").removeClass("active");
-		$("#jjzbli").removeClass("active");
 		$("#timelyDisk").attr("class", "active");
 		
 		var url = $.serviceAddress()+'datacenter/plateconcept';
@@ -86,7 +85,6 @@ $(document).ready(function() {
    	   $('#hotMarketModel').hide();
    	   $("#timelyDisk").removeClass("active");
 	   $("#hotMarket").removeClass("active");
-	   $("#jjzbli").removeClass("active");
 	   $("#financeSummary").attr("class", "active");
 	   $('#financeSummaryModel').empty();
 	    var url = $.serviceAddress()+'headline/morningnews';
@@ -120,7 +118,6 @@ $(document).ready(function() {
    	   $('#hotMarketModel').show();
    	   $("#timelyDisk").removeClass("active");
 	   $("#financeSummary").removeClass("active");
-	   $("#jjzbli").removeClass("active");
 	   $("#hotMarket").attr("class", "active");
 	   $('#hotMarketModel').empty();
 	   var url = $.serviceAddress()+'headline/hotmarket';
