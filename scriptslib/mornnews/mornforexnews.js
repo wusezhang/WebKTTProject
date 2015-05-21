@@ -5,51 +5,51 @@ $(document).ready(function(){
 	});
 	
 	function  bindEvent(){
-	    $('#metalNewsBtnDown').bind('click',metalNewsDownEvent);
-	    $('#metalNewsBtnUp').bind('click',metalNewsUpEvent);
+	    $('#forexNewsBtnDown').bind('click',forexNewsDownEvent);
+	    $('#forexNewsBtnUp').bind('click',forexNewsUpEvent);
 	}
 	
 	function  initModal(){
-		//初始化贵金属新闻.
-		initMetalDataSource();
+		 //初始化外汇新闻.
+		initForexDataSource();
 	}
 	
-	function  initMetalDataSource(){
-		startNum = Number($('#metalNewsCount').val())+0;
-		var url = $.serviceAddress()+'morningnews/metalmorningnews';
+	
+	function  initForexDataSource(){
+		startNum = Number($('#forexNewsCount').val())+0;
+		var url = $.serviceAddress()+'morningnews/forexmorningnews';
 		$.commonService(url, 'POST',
             {start:startNum,limit:10}, function(map) {
-            	$('#metalNewsTotalCount').val(map.data.count);
-                initMetalNewsModal(map.data.data);
+            	$('#forexNewsTotalCount').val(map.data.count);
+                initForexNewsModal(map.data.data);
 	       }); 
 	}
 	
-
-
 	
-	function metalNewsDownEvent(){
+	
+
+	function  forexNewsDownEvent(){
 		currentCount = 0 ;
-    	if((Number($('#metalNewsCount').val())+8)>Number($('#metalNewsTotalCount').val())){
-    		currentCount = Number($('#metalNewsCount').val());
+    	if((Number($('#forexNewsCount').val())+8)>Number($('#forexNewsTotalCount').val())){
+    		currentCount = Number($('#forexNewsCount').val());
     	}else{
-    		currentCount = Number($('#metalNewsCount').val())+8;
+    		currentCount = Number($('#forexNewsCount').val())+8;
     	}
-    	$('#metalNewsCount').val(currentCount);
-    	initMetalDataSource();
+    	$('#forexNewsCount').val(currentCount);
+    	initForexDataSource();
 	}
 	
-	function metalNewsUpEvent(){
+	function  forexNewsUpEvent(){
 		currentData = 0;
-    	if((Number($('#metalNewsCount').val())-8)>0){
-    		currentData = Number($('#metalNewsCount').val())-8;
+    	if((Number($('#forexNewsCount').val())-8)>0){
+    		currentData = Number($('#forexNewsCount').val())-8;
     	}
-    	$('#metalNewsCount').val(currentData);
-    	initMetalDataSource();
+    	$('#forexNewsCount').val(currentData);
+    	initForexDataSource();
 	}
 	
-	
-	function initMetalNewsModal(data){
-		$('#metalNewsModal').empty();
+	function initForexNewsModal(data){
+		$('#forexNewsModal').empty();
 		var insertTable = '';
 		$.each(data,function(i,obj){
 		  if(i%2==0){
@@ -60,7 +60,7 @@ $(document).ready(function(){
 			+'<h5 class="media-heading"><a href="'+obj.linkUrl
 			+'" class="text-info" target="view_window"><span class="glyphicon glyphicon-globe"></span>  '
 			+obj.title+'</a>'
-			+'<span class="label label-warning pull-right">'+obj.pubDate+'</span> </h5>'
+			+'<span class="label label-info pull-right">'+obj.pubDate+'</span> </h5>'
 			+'<h6 class="text-warning">'+$.trim(obj.descriptContext)+'</h6>'
 			+'</div>'
 		    +'</div></td>';
@@ -72,13 +72,13 @@ $(document).ready(function(){
 			+'<h5 class="media-heading"><a href="'+obj.linkUrl
 			+'" class="text-info" target="view_window"><span class="glyphicon glyphicon-globe"></span>  '
 			+obj.title+'</a>'
-			+'<span class="label label-warning pull-right">'+obj.pubDate+'</span> </h5>'
+			+'<span class="label label-info pull-right">'+obj.pubDate+'</span> </h5>'
 			+'<h6 class="text-warning">'+$.trim(obj.descriptContext)+'</h6>'
 			+'</div>'
 		    +'</div></td></tr>';
 		  }
 	    });
-	    $('#metalNewsModal').append(insertTable);
+	    $('#forexNewsModal').append(insertTable);
 	}
 	
 });
