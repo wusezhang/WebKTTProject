@@ -10,14 +10,14 @@
 		<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.min.css">
 		<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 		<!--引入自定义的css样式-->
-		<link  rel="stylesheet" type="text/css" href="../csslib/mornnewsYM/mornMetalNews.css"/>
+		<link  rel="stylesheet" type="text/css" href="../csslib/mornnewsYM/mornNews.css"/>
 		<!--js文件导入-->
 		<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
 		<script src="http://cdn.bootcss.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="../pluginjslib/commonService/common.service.plugin.js"></script>
 		<script type="text/javascript" src="../pluginjslib/commonService/common.application.plugin.js"></script>
 		<script type="text/javascript" src="../pluginjslib/commonService/common.util.plugin.js"></script>
-		<script type="text/javascript" src="../scriptslib/mornnews/mornmetalnew.js"></script>
+		<script type="text/javascript" src="../scriptslib/mornnews/mornfinancenews.js"></script>
 	</head>
 	<body>
 		<!--菜单显示栏位-->
@@ -28,32 +28,35 @@
 
 			<div class="collapse navbar-collapse" id="bs-infor">
 				<ul class="nav navbar-nav">
-					<span class="label label-info">(贵金属)新闻快讯</span>
+					<span class="label label-info">国内外(股市/财经)新闻快讯</span>
 				</ul>
 			</div>
 
 		</nav>
 		<!--菜单显示结束-->
-         
-        <div class="well well-sm newsPosition">
+
+		<div class="well well-sm chinaNewsPosition">
+			
 			<div class="panel panel-warning">
 				<div class="panel-heading">
-					国内外贵金属快讯
+					国内外财经快讯
 				</div>
 				<div class="panel-body">
 					<table class="table table-striped table-condensed table-bordered">
-						<tbody id="metalNewsModal"> </tbody>
+						<tbody id="chinaNewsModal"> </tbody>
 					</table>
 			        <div align="center">
-						<a class="btn btn-warning btn-sm" id="metalNewsBtnDown"><span class="glyphicon glyphicon-chevron-down"> </span></a>
+						<a class="btn btn-warning btn-sm" id="chinaNewsBtnDown"><span class="glyphicon glyphicon-chevron-down"> </span></a>
 						&nbsp;&nbsp;&nbsp;
-						<a class="btn btn-warning btn-sm" id="metalNewsBtnUp"><span class="glyphicon glyphicon-chevron-up"> </span></a>
+						<a class="btn btn-warning btn-sm" id="chinaNewsBtnUp"><span class="glyphicon glyphicon-chevron-up"> </span></a>
 					</div>
 			    </div>
 			</div>
-				
+
 		</div>
-        <input type="text" class="hide" id="metalNewsCount" value="0"/>
-        <input type="text" class="hide" id="metalNewsTotalCount" value="0"/>  
+		
+        <input type="text" class="hide" id="chinaNewsCount" value="0"/>
+        <input type="text" class="hide" id="chinaNewsTotalCount" value="0"/>
 	</body>
 </html>
+
