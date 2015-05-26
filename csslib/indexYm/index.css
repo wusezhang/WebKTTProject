@@ -48,13 +48,17 @@
 	max-width:140px;
 	max-height:140px;
 }
-.modalhide{
-   display:none;
-}
+
 .headlineImageSize{
 	width:100px;
 	height:70px;
 }
 .headlineTableWidth{
 	width:50%;
+}
+
+.newsPosition{
+	position:absolute;
+	top:45px;
+	width:100%;
 }

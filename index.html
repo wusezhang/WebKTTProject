@@ -37,7 +37,7 @@
 							<li>
 								<a href="javascript:void(0)">其他功能</a>
 							</li>
-							<li class="divider"> </li>
+							<li class="divider"></li>
 							<li>
 								<a href="javascript:void(0)" id="addFavoritesBtn">加入收藏夹</a>
 							</li>
@@ -49,7 +49,7 @@
 							<li>
 								<a href="login/login.html">用户登录</a>
 							</li>
-							<li class="divider"> </li>
+							<li class="divider"></li>
 							<li >
 								<a  href=" login/register.html">注册</a>
 							</li>
@@ -62,18 +62,9 @@
 
 		<!--仿Win8风格的网站-->
 		<!--早财快讯模块-->
-		<div class="jumbotron">
-			<div class="container">
-				<h1>财汇.NET, 领先的财经信息汇聚商!</h1>
-				<p>当前为页面调整阶段，请谅解！</p>
-				<p>
-				   <a class="btn btn-primary btn-lg" href="index_1.0.html" role="button">页面信息展示 &raquo;</a>
-				</p>
-			</div>
-		</div>
-		
-		
-		<div class="live-tile well-sm cyan" data-speed="1500"  data-mode="carousel" data-bounce="true" data-initdelay="3500" data-direction="horizontal">
+		<div class="well well-sm newsPosition" >
+			
+			<div class="live-tile well-sm cyan" data-speed="1500"  data-mode="carousel" data-bounce="true" data-initdelay="3500" data-direction="horizontal">
 				<div >
 					<a class="full" href="mornnews/mornstocknews.html"><img class="full"  src="imagelib/indexYM/stocknewsicon.jpg"/></a>
 					<div class="bottomshowInfor" >
@@ -86,9 +77,9 @@
 						(财经)新闻快讯
 					</div>
 				</div>
-		</div>
-		
-		<div class="live-tile label-warning  well-sm"  data-speed="1000"  id="zckxBox"  data-direction="vertical" data-mode="carousel" data-bounce="true" data-bounce-dir="edges">
+			</div>
+
+			<div class="live-tile well-sm "  data-speed="1000"  id="zckxBox"  data-direction="vertical" data-mode="carousel" data-bounce="true" data-bounce-dir="edges">
 				<div>
 					<a class="full" href="mornnews/mornforexnews.html"><img src="imagelib/indexYM/forexicon.jpg" /></a>
 					<div class="bottomshowInfor" >
@@ -101,10 +92,25 @@
 						<span class="icon-white  icon-list-alt"> </span> (贵金属)新闻快讯
 					</div>
 				</div>
-		</div>
+			</div>
 			
-		 
-		
+			<div class="live-tile well-sm cyan" data-speed="1500"  data-mode="carousel" data-bounce="true" data-initdelay="3500" id="kjqyControl" data-direction="horizontal">
+				<div >
+					<a class="full" href=" comment/stockComment.html"><img class="full"  src=" imagelib/indexYM/jrplIcon.jpg"/></a>
+					<div class="bottomshowInfor" >
+						(股市/财经)今日评论
+					</div>
+				</div>
+				<div >
+					<a class="full" href="comment/forexComment.html"><img class="full"  src="imagelib/indexYM/hsjrpl.jpg"/></a>
+					<div class="bottomshowInfor" >
+						(汇市/贵金属)今日评论
+					</div>
+				</div>
+			</div>
+			
+		</div>
+
 		<!--工具栏相应的信息开始-->
 		<div class="appbar">
 
@@ -130,16 +136,16 @@
 				<!--信息列表显示-->
 				<div id="showInformationBox" >
 					<!--早财快讯显示框架-->
-					<table id="financeSummaryModel" class="table table-bordered table-condensed"> </table>
+					<table id="financeSummaryModel" class="table table-bordered table-condensed"></table>
 					<!--市场热点信息-->
-					<table id="hotMarketModel" class="table table-bordered table-condensed"> </table>
+					<table id="hotMarketModel" class="table table-bordered table-condensed"></table>
 
 					<!--经济指标显示信息-->
 					<table id="showModelTable" class="table table-bordered table-condensed">
 						<tr>
-							<td id="showTbModel" style="height:300px;width:33.5%"> </td>
-							<td id="showFutureModel" style="height:300px;width:33.5%"> </td>
-							<td id="showMarketSentModel" style="height:300px;width:33.5%"> </td>
+							<td id="showTbModel" style="height:300px;width:33.5%"></td>
+							<td id="showFutureModel" style="height:300px;width:33.5%"></td>
+							<td id="showMarketSentModel" style="height:300px;width:33.5%"></td>
 						</tr>
 					</table>
 					<!--经济指标显示信息结束-->
