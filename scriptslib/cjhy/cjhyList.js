@@ -8,6 +8,11 @@ $(document).ready(function(){
 	   
 	   //初始化相应的分页框架   
 	   $.showPage(0);
+	   
+	   
+	   
+	   
+	   
 	}
 	
 	function bindEvent(){
@@ -43,7 +48,6 @@ function  initAuthorModel(data){
 		      +'<td>'+data[i].bzname+'</td>'
           	  +'<td> '+data[i].bzintroduce +'</td> '
           	  +'<td> '+data[i].createDate+'</td> '
-          	  +'<td> <a href="#" class="btn btn-sm btn-success">'+ +'%</a></td> '
           	  +'<td><a href="cjhyListDetail.html?id='+data[i].id+'"  class="btn btn-sm btn-primary fancybox fancybox.iframe"><span class="glyphicon glyphicon-ok-sign">'
           	  +'</span>&nbsp;&nbsp;评论列表</a></td></tr>'
           	  );
