@@ -16,10 +16,10 @@ $(document).ready(function(){
 	
 	function  forexNewsDownEvent(){
 		currentCount = 0 ;
-    	if((Number($('#forexNewsCount').val())+8)>Number($('#forexNewsTotalCount').val())){
+    	if((Number($('#forexNewsCount').val())+10)>Number($('#forexNewsTotalCount').val())){
     		currentCount = Number($('#forexNewsCount').val());
     	}else{
-    		currentCount = Number($('#forexNewsCount').val())+8;
+    		currentCount = Number($('#forexNewsCount').val())+10;
     	}
     	$('#forexNewsCount').val(currentCount);
     	initForexNewsDataSource();
@@ -27,8 +27,8 @@ $(document).ready(function(){
 	
 	function  forexNewsUpEvent(){
 		currentData = 0;
-    	if((Number($('#forexNewsCount').val())-8)>0){
-    		currentData = Number($('#forexNewsCount').val())-8;
+    	if((Number($('#forexNewsCount').val())-10)>0){
+    		currentData = Number($('#forexNewsCount').val())-10;
     	}
     	$('#forexNewsCount').val(currentData);
     	initForexNewsDataSource();
@@ -38,7 +38,7 @@ $(document).ready(function(){
 		startNum = Number($('#forexNewsCount').val())+0;
 		var url = $.serviceAddress()+'comments/todayforex';
 		$.commonService(url, 'POST',
-            {start:startNum,limit:8}, function(map) {
+            {start:startNum,limit:10}, function(map) {
                $('#forexNewsTotalCount').val(map.data.count);	
 		       initForexNewsModal(map.data.data);
 	        }); 

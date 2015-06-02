@@ -18,10 +18,10 @@ $(document).ready(function(){
 	
 	function  metalNewsDownEvent(){
 		currentCount = 0 ;
-    	if((Number($('#metalNewsCount').val())+8)>Number($('#metalNewsTotalCount').val())){
+    	if((Number($('#metalNewsCount').val())+10)>Number($('#metalNewsTotalCount').val())){
     		currentCount = Number($('#metalNewsCount').val());
     	}else{
-    		currentCount = Number($('#metalNewsCount').val())+8;
+    		currentCount = Number($('#metalNewsCount').val())+10;
     	}
     	$('#metalNewsCount').val(currentCount);
     	initMetalNewsDataSource();
@@ -29,8 +29,8 @@ $(document).ready(function(){
 	
 	function  metalNewsUpEvent(){
 		currentData = 0;
-    	if((Number($('#metalNewsCount').val())-8)>0){
-    		currentData = Number($('#metalNewsCount').val())-8;
+    	if((Number($('#metalNewsCount').val())-10)>0){
+    		currentData = Number($('#metalNewsCount').val())-10;
     	}
     	$('#metalNewsCount').val(currentData);
     	initMetalNewsDataSource();
@@ -43,7 +43,7 @@ $(document).ready(function(){
 		startNum = Number($('#metalNewsCount').val())+0;
 		var url = $.serviceAddress()+'comments/todaymetal';
 		$.commonService(url, 'POST',
-            {start:startNum,limit:8}, function(map) {
+            {start:startNum,limit:10}, function(map) {
                $('#metalNewsTotalCount').val(map.data.count);
 		       initMetalNewsModal(map.data.data);
 	        }); 
