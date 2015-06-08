@@ -8,6 +8,11 @@ $(document).ready(function() {
     function initModel() {
         $(".appbar").applicationBar();
         $("#showBox").hide();
+        
+        //首页弹出框两分钟后自动缩低
+        setTimeout('openInforButtonClickEvent()',120000);
+        
+        
     }
 
     function bindEvent() {
@@ -68,3 +73,8 @@ $(document).ready(function() {
     }
 
 });
+
+
+function openInforButtonClickEvent(){
+	$(".etc").click();
+}
