@@ -25,6 +25,7 @@ function  initArgs(){
 }
 
 function  initAuthorArticleList(data){
+	alert(data);
 	$('#authShowModel').empty();
 	for(var i = 0 ; i<data.length;i++){
 		  $('#authShowModel').append('<tr><td><img src="'+initImageShow(data[i])+'"  class="img-rounded imageShowModal"/></td>'
